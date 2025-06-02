@@ -1,63 +1,62 @@
-let num = document.getElementById("ip")
-let button = document.getElementById("btn")
-let output = document.getElementById("output")
+let num = document.getElementById("ip");
+let button = document.getElementById("btn");
+let output = document.getElementById("output");
 
-let value = num.value;
+button.addEventListener("click", function (event) {
+  event.preventDefault();
+  output.innerHTML = ""; // Clear previous output
 
-button.addEventListener("click", async function(event){
-event.preventDefault();
+  let value = Number(num.value);
 
-let promise = new Promise((resolve, reject) => {
+  // Initial Promise - Step 1
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      output.innerHTML += `Result: ${value}<br>`;
+      resolve(value);
+    }, 2000);
+  })
 
+  // Step 2: Multiply by 2
+  .then((result) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        let second = result * 2;
+        output.innerHTML += `Result: ${second}<br>`;
+        resolve(second);
+      }, 1000);
+    });
+  })
 
-setTimeout(() => {
- output.innerHTML = (`Result: ${value}`)
-},2000)
-resolve();
-})
+  // Step 3: Subtract 3
+  .then((result) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        let third = result - 3;
+        output.innerHTML += `Result: ${third}<br>`;
+        resolve(third);
+      }, 1000);
+    });
+  })
 
- let second = value * 2;
-let sencProm = await new Promise((resolve, reject) => {
-   
-    setTimeout(() =>
-   output.innerHTML = (`Result: ${second}`)
-    , 2000);
-    resolve(second);
-    //Multiply the number by 2 and display it in the div as Result: <number>.
+  // Step 4: Divide by 2
+  .then((result) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        let fourth = result / 2;
+        output.innerHTML += `Result: ${fourth}<br>`;
+        resolve(fourth);
+      }, 1000);
+    });
+  })
 
+  // Step 5: Add 10 and show Final Result
+  .then((result) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        let final = result + 10;
+        output.innerHTML += `Final Result: ${final}<br>`;
+        resolve(final);
+      }, 1000);
+    });
   });
-
-let third = second - 3
-let thirdPrm = await new Promise((resolve, reject) => {
-    
-    setTimeout(() => 
-  output.innerHTML = (`Result: ${third}`)
-    , 1000);
-    resolve();
-    //subtract 3 from the number and display it as Result: <number>.
 });
- let forth = third /2;
-let forthPrm = await new Promise((resolve, reject) => {
- 
-  setTimeout(() =>
-output.innerHTML = (`Result: ${forth}`)
-    , 1000);
-    resolve();
-    //Divide the number by 2 and display it as Result: <number>.
-
-  });
-  
-  let five = forth + 10;
-let fivePrm = await new Promise((resolve, reject) => {
-  
-  setTimeout(() =>
-  output.innerHTML = (`Result: ${five}`)
-    , 1000);
-    resolve();
-    //Add 10 to the number and display it as Final Result: <number>.
-
- });
-  
-})
-
-
