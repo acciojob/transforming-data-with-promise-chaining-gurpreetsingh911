@@ -11,7 +11,7 @@ let promise = new Promise((resolve, reject) => {
 
 
 setTimeout(() => {
- output.innerHTML = (`Result:1 ${value}`)
+ output.innerHTML = (`Result: ${value}`)
 },2000)
 resolve();
 })
@@ -20,7 +20,7 @@ resolve();
 let sencProm = await new Promise((resolve, reject) => {
    
     setTimeout(() =>
-   output.innerHTML = (`Result:2 ${second}`)
+   output.innerHTML = (`Result: ${second}`)
     , 2000);
     resolve(second);
     //Multiply the number by 2 and display it in the div as Result: <number>.
@@ -31,7 +31,7 @@ let third = second - 3
 let thirdPrm = await new Promise((resolve, reject) => {
     
     setTimeout(() => 
-  output.innerHTML = (`Result3: ${third}`)
+  output.innerHTML = (`Result: ${third}`)
     , 1000);
     resolve();
     //subtract 3 from the number and display it as Result: <number>.
@@ -40,7 +40,7 @@ let thirdPrm = await new Promise((resolve, reject) => {
 let forthPrm = await new Promise((resolve, reject) => {
  
   setTimeout(() =>
-output.innerHTML = (`Result4: ${forth}`)
+output.innerHTML = (`Result: ${forth}`)
     , 1000);
     resolve();
     //Divide the number by 2 and display it as Result: <number>.
@@ -51,7 +51,7 @@ output.innerHTML = (`Result4: ${forth}`)
 let fivePrm = await new Promise((resolve, reject) => {
   
   setTimeout(() =>
-  output.innerHTML = (`Result5: ${five}`)
+  output.innerHTML = (`Result: ${five}`)
     , 1000);
     resolve();
     //Add 10 to the number and display it as Final Result: <number>.
